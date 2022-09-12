@@ -1,0 +1,40 @@
+{% extends "user/base.html" %}
+{% block register %}
+    <div class="element">
+        <div class="card">
+            <div class="inner-box" id="card">
+                <div class="card-front">
+                    <form method="post" name="register">
+                        {% csrf_token %}
+                        <div>
+                            <div class="input-box">
+                                {{form.username}}
+                            </div>
+                            
+                            <div class="input-box">
+                                {{form.email}}
+                            </div>
+                            
+                        </div>
+                        <br>
+                        <div>
+                            <div class="input-box">
+                                {{form.password1}}
+                            </div>
+                            
+                            <div class="input-box">
+                                {{form.password2}}
+                            </div>
+                            
+                        </div>
+                        <button type="submit" class="sumbit-btn" name="register">Submit</button>
+                        <input type="checkbox"><span>Remember Me</span>
+                    </form>
+                    {{form.errors}}
+                    <a href="{% url 'login' %}" type="button" class="btn">I've an account</a>
+                    <a href="">Forgot password</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock register %}

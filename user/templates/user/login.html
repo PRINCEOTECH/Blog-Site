@@ -1,0 +1,30 @@
+{% extends "user/base.html" %}
+{% block register %}
+    <div class="element">
+        <div class="card">
+            <div class="inner-box" id="card">
+                <div class="card-front">
+                    <h2>LOGIN</h2>
+                    
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="text" class="input-box" placeholder="Username" name="username">
+                        <br>
+                    
+                        <input type="password" class="input-box" placeholder="password" name="password">
+                        
+                        <button type="submit" class="sumbit-btn">LOGIN</button>
+                        <input type="checkbox"><span>Remember Me</span>
+                    </form>
+                        {% for message in massages %}
+                            <div class="alert alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    <a href="{% url 'register' %}" class="btn" type="button">I'm New Here</a>
+                    <a href="">Forgot password</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock register %}
